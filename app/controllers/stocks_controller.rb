@@ -8,12 +8,16 @@ class StocksController < ApplicationController
           format.js { render partial:'users/result' }
         end
       else
-        flash[:alert] = "Ticker symbol must be valid"
-        redirect_to my_portfolio_path
+        respond_to do |format|
+          flash.now[:alert] = "Ticker symbol must be valid"
+          format.js { render partial:'users/result' }
+        end        
       end
     else
-      flash[:alert] = "Please enter a ticker symbol"
-      redirect_to my_portfolio_path
+      respond_to do |format|
+        flash.now[:alert] = "Please enter a ticker symbol"
+        format.js { render partial:'users/result' }
+      end       
     end
   end
   
