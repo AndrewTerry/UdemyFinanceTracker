@@ -1,0 +1,10 @@
+<% if @stock %>
+  </p>
+  <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header"><%= @stock.ticker_symbol %></div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @stock.name %></h5>
+      <p class="card-text">Latest price: $<%= @stock.last_price %></p>
+    </div>
+  </div>
+<% end %>
